@@ -59,14 +59,16 @@ export function CartContextProvider({ children }) {
   function removeItem(id) {
     dispatchCartAction({ type: "REMOVE_ITEM", id });
   }
-  const CartContext = {
+  const cartContextValue = {
     items: cart.items,
     addItem,
     removeItem,
   };
 
   return (
-    <CartContext.Provider value={CartContext}>{children}</CartContext.Provider>
+    <CartContext.Provider value={cartContextValue}>
+      {children}
+    </CartContext.Provider>
   );
 }
 
